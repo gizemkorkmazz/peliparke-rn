@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
-import { TouchableRipple, Divider } from 'react-native-paper';
+import { TouchableRipple, Divider, Dialog, DialogContent, DialogActions, Button } from 'react-native-paper';
 import { FontSizeDict } from './../helpers/Constans';
 import { DrawerItems } from 'react-navigation';
 import { Colors, widthPercentageToDP } from '../helpers';
 
-const DrawerItem = ({ title, icon }) => {
+const DrawerItem = ({ title, icon, onPress }) => {
 	return (
 		<View>
-			<TouchableOpacity style={styles.drawerItemStyle} onPress={() => {}}>
+			<TouchableOpacity
+				style={styles.drawerItemStyle}
+				onPress={() => {
+					onPress();
+				}}
+			>
 				<View style={styles.drawerItemContainer}>
 					<Image source={icon} style={styles.drawerItemIcon} />
 					<Text style={styles.drawerItemTitleStyle}>{title}</Text>
@@ -22,7 +27,10 @@ const DrawerItem = ({ title, icon }) => {
 };
 
 class SideMenu extends Component {
-	state = { active: this.props.activeItemKey };
+	state = { active: this.props.activeItemKey, visible: false };
+	hideDialog() {
+		this.setState({ visible: false });
+	}
 
 	render() {
 		const { active } = this.state;
@@ -30,6 +38,19 @@ class SideMenu extends Component {
 		console.log(descriptors);
 		return (
 			<View style={styles.container}>
+				<Dialog visible={this.state.visible} onDismiss={() => this.hideDialog()}>
+					<DialogContent>
+						<Text>Çıkış yapmak istediğinizden emin misiniz?</Text>
+					</DialogContent>
+					<View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
+						<DialogActions>
+							<Button onPress={() => this.hideDialog()}>Vazgeç</Button>
+						</DialogActions>
+						<DialogActions>
+							<Button onPress={() => this.hideDialog()}>Çıkış Yap</Button>
+						</DialogActions>
+					</View>
+				</Dialog>
 				<View style={styles.userContainer}>
 					<Text style={styles.salute}>Merhaba,</Text>
 					<Text style={styles.user}>Ahmet Tuncer.</Text>
@@ -44,8 +65,66 @@ class SideMenu extends Component {
 						<Image source={require('../../assets/blueRefresh.png')} style={styles.refreshButton} />
 					</TouchableOpacity>
 				</View>
+				<View>
+					<DrawerItem
+						title="Ana Sayfa"
+						icon={require('../../assets/menuHome.png')}
+						onPress={() => {
+							this.props.navigation.navigate('home');
+						}}
+					/>
+					<DrawerItem
+						title="Profilim"
+						icon={require('../../assets/menuProfile.png')}
+						onPress={() => {
+							this.props.navigation.navigate('profile');
+						}}
+					/>
+					<DrawerItem
+						title="Kare Kod Giriş"
+						icon={require('../../assets/menuQr.png')}
+						onPress={() => {
+							this.props.navigation.navigate('qrCode');
+						}}
+					/>
+					<DrawerItem
+						title="Hediye Kataloğu"
+						icon={require('../../assets/menuHediye.png')}
+						onPress={() => {
+							this.props.navigation.navigate('giftCatalog');
+						}}
+					/>
+					<DrawerItem
+						title="Videolar"
+						icon={require('../../assets/menuVideolar.png')}
+						onPress={() => {
+							this.props.navigation.navigate('videos');
+						}}
+					/>
+					<DrawerItem
+						title="Bizden Haberler"
+						icon={require('../../assets/menuBizdenHaber.png')}
+						onPress={() => {
+							this.props.navigation.navigate('newsFromUs');
+						}}
+					/>
+					<DrawerItem
+						title="Sosyal Mecralar"
+						icon={require('../../assets/menuSosyalMecaralar.png')}
+						onPress={() => {
+							this.props.navigation.navigate('social');
+						}}
+					/>
+					<DrawerItem
+						title="Bize Ulaşın"
+						icon={require('../../assets/menuBizeUlasin.png')}
+						onPress={() => {
+							this.props.navigation.navigate('contactUs');
+						}}
+					/>
+				</View>
 				{/* <DrawerItems {...this.props} /> */}
-				{Object.keys(descriptors).map((item, index) => {
+				{/* {Object.keys(descriptors).map((item, index) => {
 					return (
 						<DrawerItem
 							key={index}
@@ -53,9 +132,14 @@ class SideMenu extends Component {
 							icon={descriptors[item].options.drawerIcon}
 						/>
 					);
-				})}
+				})} */}
 				<View style={[styles.drawerItemContainer, { backgroundColor: '#00578A', flex: 1 }]}>
-					<TouchableOpacity style={[styles.drawerItemStyle, { paddingTop: '6%' }]} onPress={() => {}}>
+					<TouchableOpacity
+						style={[styles.drawerItemStyle, { paddingTop: '6%' }]}
+						onPress={() => {
+							this.setState({ visible: true });
+						}}
+					>
 						<View style={{ flexDirection: 'row' }}>
 							<Image
 								source={require('../../assets/menuCikis.png')}

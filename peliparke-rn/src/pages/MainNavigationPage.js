@@ -17,57 +17,50 @@ const DrawerPage = createDrawerNavigator(
 		home: {
 			screen: HomePage,
 			navigationOptions: {
-				drawerLabel: 'Ana Sayfa',
-				drawerIcon: require('../../assets/menuHome.png')
+				drawerLabel: 'Ana Sayfa'
+				// drawerIcon: require('../../assets/menuHome.png')
 			}
 		},
 		profile: {
 			screen: ProfilePage,
 			navigationOptions: {
-				drawerLabel: 'Profilim',
-				drawerIcon: require('../../assets/menuProfile.png')
+				drawerLabel: 'Profilim'
 			}
 		},
 		qrCode: {
 			screen: QRCodePage,
 			navigationOptions: {
-				drawerLabel: 'Kare Kod Giriş',
-				drawerIcon: require('../../assets/menuQr.png')
+				drawerLabel: 'Kare Kod Giriş'
 			}
 		},
 		giftCatalog: {
 			screen: GiftCatalogPage,
 			navigationOptions: {
-				drawerLabel: 'Hediye Kataloğu',
-				drawerIcon: require('../../assets/menuHediye.png')
+				drawerLabel: 'Hediye Kataloğu'
 			}
 		},
 		videos: {
 			screen: VideosPage,
 			navigationOptions: {
-				drawerLabel: 'Videolar',
-				drawerIcon: require('../../assets/menuVideolar.png')
+				drawerLabel: 'Videolar'
 			}
 		},
 		newsFromUs: {
 			screen: NewsFromUsPage,
 			navigationOptions: {
-				drawerLabel: 'Bizden Haberler',
-				drawerIcon: require('../../assets/menuBizdenHaber.png')
+				drawerLabel: 'Bizden Haberler'
 			}
 		},
 		social: {
 			screen: SocialPage,
 			navigationOptions: {
-				drawerLabel: 'Sosyal Mecralar',
-				drawerIcon: require('../../assets/menuSosyalMecaralar.png')
+				drawerLabel: 'Sosyal Mecralar'
 			}
 		},
 		contactUs: {
 			screen: ContactUsPage,
 			navigationOptions: {
-				drawerLabel: 'Bize Ulaşın',
-				drawerIcon: require('../../assets/menuBizeUlasin.png')
+				drawerLabel: 'Bize Ulaşın'
 			}
 		}
 	},
