@@ -6,6 +6,12 @@ const Colors = {
 	SideMenuDetailSecondBackgroundColor: '#968556',
 	SideMenuDetailThirdBackgroundColor: '#333333',
 	BasicTextColor: '#FFFFFF',
-	DividerColor: '#FFEEFFFF'
+	DividerColor: '#FFEEFFFF',
+	LoginPageTextInputBackgroundColor: '#EDEDED',
+	LoginPageLogoContainerBackgroundColor: '#D3D3D3',
+	LoginPagePlaceholderTextColor: '#444444',
+	LoginButtonColor: '#2DCC70',
+	RegisterButtonColor: '#3399DB',
+	ForgotPasswordButton: '#A1A19F'
 };
 export { Colors };

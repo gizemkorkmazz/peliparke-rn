@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { createDrawerNavigator, createSwitchNavigator } from 'react-navigation';
+import { createDrawerNavigator, createSwitchNavigator, createStackNavigator } from 'react-navigation';
 import { Image } from 'react-native';
 import HomePage from './HomePage';
 import LoginPage from './LoginPage';
@@ -70,7 +70,14 @@ const DrawerPage = createDrawerNavigator(
 		contentOptions: {}
 	}
 );
-
+const AuthStackNavigator = createStackNavigator({
+	login: {
+		screen: LoginPage,
+		navigationOptions: {
+			header: null
+		}
+	}
+});
 const MainPage = createSwitchNavigator(
 	{
 		splash: {
@@ -78,10 +85,13 @@ const MainPage = createSwitchNavigator(
 		},
 		app: {
 			screen: DrawerPage
+		},
+		auth: {
+			screen: AuthStackNavigator
 		}
 	},
 	{
-		initialRouteName: 'app'
+		initialRouteName: 'auth'
 	}
 );
 
