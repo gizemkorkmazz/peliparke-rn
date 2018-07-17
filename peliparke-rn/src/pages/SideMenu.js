@@ -133,7 +133,12 @@ class SideMenu extends Component {
 						/>
 					);
 				})} */}
-				<View style={[styles.drawerItemContainer, { backgroundColor: '#00578A', flex: 1 }]}>
+				<View
+					style={[
+						styles.drawerItemContainer,
+						{ backgroundColor: Colors.SideMenuDetailFirstBackgroundColor, flex: 1 }
+					]}
+				>
 					<TouchableOpacity
 						style={[styles.drawerItemStyle, { paddingTop: '6%' }]}
 						onPress={() => {
@@ -215,7 +220,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		paddingHorizontal: '2%',
 		height: '6.5%',
-		backgroundColor: Colors.SideMenuRefreshViewBackgroundColor
+		backgroundColor: Colors.SideMenuDetailFirstBackgroundColor
 	},
 	refreshText: {
 		color: Colors.BasicTextColor,
