@@ -12,6 +12,7 @@ import VideosPage from './VideosPage';
 import SocialPage from './SocialPage';
 import NewsFromUsPage from './NewsFromUsPage';
 import ContactUsPage from './ContactUsPage';
+import ForgotPasswordPage from './ForgotPasswordPage';
 const DrawerPage = createDrawerNavigator(
 	{
 		home: {
@@ -73,6 +74,12 @@ const DrawerPage = createDrawerNavigator(
 const AuthStackNavigator = createStackNavigator({
 	login: {
 		screen: LoginPage,
+		navigationOptions: {
+			header: null
+		}
+	},
+	forgotPassword: {
+		screen: ForgotPasswordPage,
 		navigationOptions: {
 			header: null
 		}

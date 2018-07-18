@@ -59,7 +59,13 @@ class LoginPage extends Component {
 							}}
 						/> */}
 					</View>
-					<Button raised style={styles.forgotPasswordButton} onPress={() => {}}>
+					<Button
+						raised
+						style={styles.forgotPasswordButton}
+						onPress={() => {
+							this.props.navigation.navigate('forgotPassword');
+						}}
+					>
 						ŞİFREMİ UNUTTUM
 					</Button>
 				</ImageBackground>
