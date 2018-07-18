@@ -9,13 +9,12 @@ const { width, height } = Dimensions.get('window');
 class ForgotPasswordPage extends Component {
 	render() {
 		return (
-			<ScrollView horizontal={true} pagindEnabled={true} ref="myScrollView" scrollEnabled={false}>
-				<View style={{ width: width }}>
-					<ImageBackground source={require('../../assets/loginBG.jpg')} style={styles.loginBackgroundImage}>
-						<View style={styles.logoContainer}>
-							<Image source={require('../../assets/logo.png')} style={styles.logo} />
-						</View>
-
+			<ImageBackground source={require('../../assets/loginBG.jpg')} style={styles.loginBackgroundImage}>
+				<View style={styles.logoContainer}>
+					<Image source={require('../../assets/logo.png')} style={styles.logo} />
+				</View>
+				<ScrollView horizontal={true} pagindEnabled={true} ref="myScrollView" scrollEnabled={false}>
+					<View style={{ width: width }}>
 						<View style={[styles.information, { marginBottom: widthPercentageToDP('2%') }]}>
 							<Image source={require('../../assets/inputCeptel.png')} style={styles.textInputImage} />
 							<TextInput
@@ -48,14 +47,8 @@ class ForgotPasswordPage extends Component {
 						>
 							LOGİN SAYFASINA DÖN
 						</Button>
-					</ImageBackground>
-				</View>
-				<View style={{ width: width }}>
-					<ImageBackground source={require('../../assets/loginBG.jpg')} style={styles.loginBackgroundImage}>
-						<View style={styles.logoContainer}>
-							<Image source={require('../../assets/logo.png')} style={styles.logo} />
-						</View>
-
+					</View>
+					<View style={{ width: width }}>
 						<View style={[styles.information, { marginBottom: widthPercentageToDP('2%') }]}>
 							<Image source={require('../../assets/inputSifre.png')} style={styles.textInputImage} />
 							<TextInput
@@ -88,14 +81,8 @@ class ForgotPasswordPage extends Component {
 						>
 							KODU TEKRAR GÖNDER
 						</Button>
-					</ImageBackground>
-				</View>
-				<View style={{ width: width }}>
-					<ImageBackground source={require('../../assets/loginBG.jpg')} style={styles.loginBackgroundImage}>
-						<View style={styles.logoContainer}>
-							<Image source={require('../../assets/logo.png')} style={styles.logo} />
-						</View>
-
+					</View>
+					<View style={{ width: width }}>
 						<View style={[styles.information, { marginBottom: widthPercentageToDP('2%') }]}>
 							<Image source={require('../../assets/inputSifre.png')} style={styles.textInputImage} />
 							<TextInput
@@ -129,9 +116,9 @@ class ForgotPasswordPage extends Component {
 								KAYDET
 							</Button>
 						</View>
-					</ImageBackground>
-				</View>
-			</ScrollView>
+					</View>
+				</ScrollView>
+			</ImageBackground>
 		);
 	}
 }

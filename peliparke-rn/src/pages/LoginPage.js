@@ -14,7 +14,12 @@ class LoginPage extends Component {
 						<Image source={require('../../assets/logo.png')} style={styles.logo} />
 					</View>
 
-					<View style={[styles.loginInformation, { marginBottom: widthPercentageToDP('4%') }]}>
+					<View
+						style={[
+							styles.loginInformation,
+							{ marginBottom: widthPercentageToDP('3%'), paddingVertical: widthPercentageToDP('1.8%') }
+						]}
+					>
 						<Image
 							source={require('../../assets/inputKullaniciAdi-KartNo-vs..png')}
 							style={styles.textInputImage}
@@ -93,8 +98,9 @@ const styles = StyleSheet.create({
 	},
 	loginInformation: {
 		flexDirection: 'row',
-		padding: '3%',
-		height: '9%',
+		paddingHorizontal: widthPercentageToDP('4%'),
+		paddingVertical: widthPercentageToDP('1%'),
+		alignItems: 'center',
 		marginHorizontal: widthPercentageToDP('4%'),
 		backgroundColor: Colors.LoginPageTextInputBackgroundColor
 	},
@@ -105,18 +111,19 @@ const styles = StyleSheet.create({
 	textInput: {
 		flex: 1,
 		paddingLeft: widthPercentageToDP('3%'),
-		height: heightPercentageToDP('6%')
+		height: heightPercentageToDP('6%'),
+		fontWeight: 'bold'
 	},
 	buttonContainer: {
 		margin: widthPercentageToDP('3%')
 	},
 	loginButton: {
-		marginBottom: widthPercentageToDP('4%'),
-		paddingVertical: widthPercentageToDP('2.8%'),
+		marginBottom: widthPercentageToDP('3%'),
+		paddingVertical: widthPercentageToDP('2%'),
 		backgroundColor: Colors.LoginButtonColor
 	},
 	registerButton: {
-		paddingVertical: widthPercentageToDP('2.8%'),
+		paddingVertical: widthPercentageToDP('2%'),
 		backgroundColor: Colors.RegisterButtonColor
 	},
 	forgotPasswordButton: {
