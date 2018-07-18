@@ -98,7 +98,7 @@ const MainPage = createSwitchNavigator(
 		}
 	},
 	{
-		initialRouteName: 'auth'
+		initialRouteName: 'app'
 	}
 );
 

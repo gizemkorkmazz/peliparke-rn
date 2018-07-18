@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import { withTheme, Paper, Toolbar, ToolbarBackAction, ToolbarAction, ToolbarContent } from 'react-native-paper';
-import { FontSizeDict } from '../../helpers';
+import { FontSizeDict, widthPercentageToDP, heightPercentageToDP } from '../../helpers';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 
@@ -11,16 +11,31 @@ class Page extends Component {
 	};
 
 	render() {
-		const { title, pageStyle, children } = this.props;
+		const { title, pageStyle, children, logo } = this.props;
 		return (
 			<Paper style={styles.paperStyle}>
-				<Toolbar statusBarHeight={0}>
-					<ToolbarAction icon="menu" onPress={() => this.onHamburgerClick(this.props.navigation)} />
+				<Toolbar statusBarHeight={0} style={{ backgroundColor: 'white' }}>
+					<ToolbarAction
+						icon={require('../../../assets/menu2.png')}
+						size={widthPercentageToDP('7%')}
+						color="#000000"
+						onPress={() => this.onHamburgerClick(this.props.navigation)}
+					/>
 					<ToolbarContent
 						style={{ alignItems: 'center' }}
 						titleStyle={styles.toolBarTitleStyle}
 						title={title}
 					/>
+
+					<Image
+						source={logo}
+						style={{
+							width: widthPercentageToDP('20%'),
+							resizeMode: 'contain',
+							marginRight: widthPercentageToDP('27%')
+						}}
+					/>
+
 					<ToolbarAction />
 				</Toolbar>
 				<View style={[styles.pageStyle, pageStyle]}>{children}</View>
@@ -43,6 +58,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		padding: '3%'
 	},
+
 	toolBarTitleStyle: {
 		fontSize: FontSizeDict.font16
 	}
