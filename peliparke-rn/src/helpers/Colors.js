@@ -1,4 +1,5 @@
 const Colors = {
+	AppBackgroundColor: '#E9EAE5',
 	SideMenuFirstBackgroundColor: '#0077BC',
 	SideMenuSecondBackgroundColor: '#CAB373',
 	SideMenuThirdBackgroundColor: '#000007',
@@ -12,6 +13,7 @@ const Colors = {
 	LoginPagePlaceholderTextColor: '#444444',
 	LoginButtonColor: '#2DCC70',
 	RegisterButtonColor: '#3399DB',
-	ForgotPasswordButton: '#A1A19F'
+	ForgotPasswordButton: '#A1A19F',
+	HomePageQRContainerBackgroundColor: '#FF201B'
 };
 export { Colors };
