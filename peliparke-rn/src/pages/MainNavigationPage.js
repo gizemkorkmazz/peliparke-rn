@@ -66,7 +66,7 @@ const DrawerPage = createDrawerNavigator(
 		}
 	},
 	{
-		initialRouteName: 'home',
+		initialRouteName: 'profile',
 		contentComponent: SideMenu,
 		contentOptions: {}
 	}

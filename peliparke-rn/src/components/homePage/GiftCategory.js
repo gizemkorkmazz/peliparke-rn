@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, ImageBackground } from 'react-native';
 import { widthPercentageToDP, heightPercentageToDP, Colors } from '../../helpers';
 import { FontSizeDict } from '../../helpers/Constans';
+import { PropTypes } from 'prop-types';
+
 class GiftCategory extends Component {
 	render() {
 		const { giftCategoryTitle, giftImageSource } = this.props;
@@ -16,6 +18,10 @@ class GiftCategory extends Component {
 		);
 	}
 }
+GiftCategory.propTypes = {
+	giftCategoryTitle: PropTypes.string,
+	giftImageSource: PropTypes.number
+};
 const styles = StyleSheet.create({
 	giftCatalogImage: {
 		width: widthPercentageToDP('37%'),

@@ -6,8 +6,46 @@ import { widthPercentageToDP, heightPercentageToDP, Colors } from '../helpers';
 import Swiper from 'react-native-swiper';
 import { FontSizeDict } from './../helpers/Constans';
 import GiftCategory from '../components/homePage/GiftCategory';
+const bunnerImages = [
+	{
+		source: require('../../assets/homeSlider1.png')
+	},
+	{
+		source: require('../../assets/homeSlider1.png')
+	},
+	{
+		source: require('../../assets/homeSlider1.png')
+	},
+	{
+		source: require('../../assets/homeSlider1.png')
+	}
+];
+const giftCategory = [
+	{
+		source: require('../../assets/hediyeKatalogugorsel1.jpg'),
+		title: 'Dell Laptop'
+	},
+	{
+		source: require('../../assets/hediyekatalogugorsel2.jpeg'),
+		title: 'Iphone 6'
+	},
+	{
+		source: require('../../assets/hediyekatalogugorsel3.jpg'),
+		title: 'Travel'
+	}
+];
 
 class HomePage extends Component {
+	renderBunnerImage() {
+		return bunnerImages.map((item, index) => {
+			return <Image source={item.source} style={styles.bunner} key={index} />;
+		});
+	}
+	renderGiftCategory() {
+		return giftCategory.map((item, index) => {
+			return <GiftCategory giftImageSource={item.source} giftCategoryTitle={item.title} key={index} />;
+		});
+	}
 	render() {
 		return (
 			<Page logo={require('../../assets/logo.png')} pageStyle={{ padding: 0 }}>
@@ -17,10 +55,7 @@ class HomePage extends Component {
 							dotStyle={{ backgroundColor: 'white' }}
 							activeDotStyle={{ backgroundColor: Colors.HomePageQRContainerBackgroundColor }}
 						>
-							<Image source={require('../../assets/homeSlider1.png')} style={styles.bunner} />
-							<Image source={require('../../assets/homeSlider1.png')} style={styles.bunner} />
-							<Image source={require('../../assets/homeSlider1.png')} style={styles.bunner} />
-							<Image source={require('../../assets/homeSlider1.png')} style={styles.bunner} />
+							{this.renderBunnerImage()}
 						</Swiper>
 					</View>
 					<View style={{ flex: 1 }}>
@@ -48,18 +83,7 @@ class HomePage extends Component {
 										flexDirection: 'row'
 									}}
 								>
-									<GiftCategory
-										giftImageSource={require('../../assets/hediyeKatalogugorsel1.jpg')}
-										giftCategoryTitle="Dell Laptop"
-									/>
-									<GiftCategory
-										giftImageSource={require('../../assets/hediyekatalogugorsel2.jpeg')}
-										giftCategoryTitle="Iphone 6"
-									/>
-									<GiftCategory
-										giftImageSource={require('../../assets/hediyekatalogugorsel3.jpg')}
-										giftCategoryTitle="Travel"
-									/>
+									{this.renderGiftCategory()}
 								</View>
 							</ScrollView>
 						</View>
@@ -69,6 +93,7 @@ class HomePage extends Component {
 		);
 	}
 }
+
 const styles = StyleSheet.create({
 	container: {
 		flex: 0.94
@@ -117,28 +142,6 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		paddingLeft: widthPercentageToDP('3%'),
 		marginBottom: widthPercentageToDP('4%')
-	},
-	giftCatalogImage: {
-		width: widthPercentageToDP('37%'),
-		height: heightPercentageToDP('16%'),
-		borderWidth: 0.5,
-		borderColor: '#999999',
-		marginLeft: widthPercentageToDP('3%')
-	},
-
-	giftsCategoriesContainer: {
-		backgroundColor: 'white',
-		opacity: 0.8,
-		marginTop: widthPercentageToDP('18%'),
-		marginHorizontal: widthPercentageToDP('2%'),
-		paddingVertical: widthPercentageToDP('1%')
-	},
-	giftCategoriesTitle: {
-		color: Colors.HomePageQRContainerBackgroundColor,
-		fontWeight: 'bold',
-		textAlignVertical: 'center',
-		alignSelf: 'center',
-		fontSize: FontSizeDict.font13
 	}
 });
 const mapStateToProps = state => {
