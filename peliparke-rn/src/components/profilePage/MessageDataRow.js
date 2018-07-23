@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, UIManager, LayoutAnimation } from 'react-native';
 import { Colors, widthPercentageToDP } from '../../helpers';
 import { FontSizeDict } from './../../helpers/Constans';
 import { PropTypes } from 'prop-types';
@@ -8,6 +8,11 @@ class MessageDataRow extends Component {
 	state = {
 		isMessageVisible: false
 	};
+	constructor(props) {
+		super(props);
+		UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+	}
+
 	showMessage() {
 		if (this.state.isMessageVisible === true) {
 			return (
@@ -36,7 +41,8 @@ class MessageDataRow extends Component {
 				<View>
 					<TouchableOpacity
 						onPress={() => {
-							this.setState({ isMessageVisible: true });
+							LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+							this.setState({ isMessageVisible: !this.state.isMessageVisible });
 						}}
 					>
 						<View
@@ -60,7 +66,8 @@ class MessageDataRow extends Component {
 			<View>
 				<TouchableOpacity
 					onPress={() => {
-						this.setState({ isMessageVisible: true });
+						LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
+						this.setState({ isMessageVisible: !this.state.isMessageVisible });
 					}}
 				>
 					<View style={styles.welcome}>
@@ -68,7 +75,9 @@ class MessageDataRow extends Component {
 							<Text style={styles.messageTitle}>{messageTitle}</Text>
 							<Text style={styles.messageContent}>{messageContent}</Text>
 						</View>
-						<Text style={styles.messageTime}>{messageTime}</Text>
+						<View>
+							<Text style={styles.messageTime}>{messageTime}</Text>
+						</View>
 					</View>
 				</TouchableOpacity>
 				<View>{this.showMessage()}</View>
