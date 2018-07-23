@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Colors, widthPercentageToDP, heightPercentageToDP, FontSizeDict } from '../../helpers';
+import { PropTypes } from 'prop-types';
 class PointsDataRow extends Component {
 	render() {
 		const { pointDate, point, pointText } = this.props;
@@ -15,6 +16,12 @@ class PointsDataRow extends Component {
 		);
 	}
 }
+PointsDataRow.propTypes = {
+	pointDate: PropTypes.string,
+	point: PropTypes.string,
+	pointText: PropTypes.string
+};
+
 const styles = StyleSheet.create({
 	pointContainer: {
 		flexDirection: 'row',
