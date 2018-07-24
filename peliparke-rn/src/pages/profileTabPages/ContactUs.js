@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Colors, widthPercentageToDP, heightPercentageToDP } from '../../helpers';
 import { FontSizeDict } from './../../helpers/Constans';
-import { Dialog } from '../../../node_modules/react-native-paper';
+import { Dialog, Divider } from '../../../node_modules/react-native-paper';
 import FullWidthButton from './../../components/common/FullWidthButton';
 class ContactUs extends Component {
 	state = {
@@ -30,6 +30,7 @@ class ContactUs extends Component {
 							style={styles.messageInput}
 							underlineColorAndroid="transparent"
 							multiline={true}
+							maxLength={300}
 						/>
 					</ScrollView>
 				</View>
@@ -42,6 +43,9 @@ class ContactUs extends Component {
 					}}
 				>
 					<View style={styles.dialogContainer}>
+						<Text style={styles.dialogTextsHead}>Konu Başlığı Seçin</Text>
+						<Divider style={{ marginBottom: widthPercentageToDP('2%') }} />
+
 						<TouchableOpacity
 							onPress={() => {
 								this.setState({ topic: 'Genel', isSelectTopicTitleVisible: false });
@@ -107,6 +111,11 @@ const styles = StyleSheet.create({
 		fontSize: FontSizeDict.font14,
 		marginBottom: widthPercentageToDP('2%'),
 		color: 'black'
+	},
+	dialogTextsHead: {
+		fontSize: FontSizeDict.font16,
+		fontStyle: 'italic',
+		color: Colors.ForgotPasswordButton
 	}
 });
 export default ContactUs;
