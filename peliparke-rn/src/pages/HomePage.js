@@ -49,44 +49,39 @@ class HomePage extends Component {
 	render() {
 		return (
 			<Page logo={require('../../assets/logo.png')} pageStyle={{ padding: 0 }}>
-				<View style={{ backgroundColor: Colors.AppBackgroundColor, flex: 1 }}>
-					<View style={styles.container}>
-						<Swiper
-							dotStyle={{ backgroundColor: 'white' }}
-							activeDotStyle={{ backgroundColor: Colors.HomePageQRContainerBackgroundColor }}
-						>
-							{this.renderBunnerImage()}
-						</Swiper>
-					</View>
-					<View style={{ flex: 1 }}>
-						<TouchableOpacity>
-							<View style={styles.qrCodeContainer}>
-								<Image source={require('../../assets/homeQRokut.png')} style={styles.qrPassOutImage} />
-								<View style={{ paddingRight: widthPercentageToDP('25%') }}>
-									<Text style={styles.qrCodeTitle}>KARE KOD OKUT</Text>
-									<Text style={styles.qrCodeSubTitle}>
-										Satın aldığın ürünlerin üzerindeki karekodları okut ve puanları kazan !
-									</Text>
-									<Image
-										source={require('../../assets/homeQRarrow.png')}
-										style={styles.qrArrowImage}
-									/>
-								</View>
+				<View style={styles.container}>
+					<Swiper
+						dotStyle={{ backgroundColor: 'white' }}
+						activeDotStyle={{ backgroundColor: Colors.HomePageQRContainerBackgroundColor }}
+					>
+						{this.renderBunnerImage()}
+					</Swiper>
+				</View>
+				<View style={{ flex: 1 }}>
+					<TouchableOpacity>
+						<View style={styles.qrCodeContainer}>
+							<Image source={require('../../assets/homeQRokut.png')} style={styles.qrPassImage} />
+							<View style={{ paddingRight: widthPercentageToDP('25%') }}>
+								<Text style={styles.qrCodeTitle}>KARE KOD OKUT</Text>
+								<Text style={styles.qrCodeSubTitle}>
+									Satın aldığın ürünlerin üzerindeki karekodları okut ve puanları kazan !
+								</Text>
+								<Image source={require('../../assets/homeQRarrow.png')} style={styles.qrArrowImage} />
 							</View>
-						</TouchableOpacity>
-
-						<View style={styles.giftCatalogContainer}>
-							<Text style={styles.giftCatalogTitle}>HEDİYE KATALOĞU</Text>
-							<ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-								<View
-									style={{
-										flexDirection: 'row'
-									}}
-								>
-									{this.renderGiftCategory()}
-								</View>
-							</ScrollView>
 						</View>
+					</TouchableOpacity>
+
+					<View style={styles.giftCatalogContainer}>
+						<Text style={styles.giftCatalogTitle}>HEDİYE KATALOĞU</Text>
+						<ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+							<View
+								style={{
+									flexDirection: 'row'
+								}}
+							>
+								{this.renderGiftCategory()}
+							</View>
+						</ScrollView>
 					</View>
 				</View>
 			</Page>
@@ -110,7 +105,7 @@ const styles = StyleSheet.create({
 		backgroundColor: Colors.HomePageQRContainerBackgroundColor,
 		margin: widthPercentageToDP('3%')
 	},
-	qrPassOutImage: {
+	qrPassImage: {
 		resizeMode: 'contain',
 		width: widthPercentageToDP('13%'),
 		marginHorizontal: widthPercentageToDP('3%')

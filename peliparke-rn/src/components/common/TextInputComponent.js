@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		paddingHorizontal: widthPercentageToDP('4%'),
 		paddingVertical: widthPercentageToDP('1%'),
-		marginBottom: widthPercentageToDP('3%'),
+		marginTop: widthPercentageToDP('3%'),
 		alignItems: 'center',
 		marginHorizontal: widthPercentageToDP('4%')
 		// backgroundColor: Colors.LoginPageTextInputBackgroundColor || 'white'

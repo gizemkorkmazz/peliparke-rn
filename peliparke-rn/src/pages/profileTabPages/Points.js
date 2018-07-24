@@ -35,8 +35,8 @@ class Points extends Component {
 	}
 	render() {
 		return (
-			<View style={styles.container}>
-				<View style={[styles.pointContainer, { backgroundColor: Colors.AppBackgroundColor }]}>
+			<View>
+				<View style={styles.pointContainer}>
 					<Text style={styles.headText}>Açıklama</Text>
 					<View style={styles.pointDetail}>
 						<Text style={styles.headText}>Puan</Text>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		marginHorizontal: widthPercentageToDP('4%'),
 		marginVertical: widthPercentageToDP('1%'),
-		backgroundColor: 'white',
+		backgroundColor: Colors.AppBackgroundColor,
 		padding: widthPercentageToDP('2%')
 	},
 

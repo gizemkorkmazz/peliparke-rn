@@ -41,18 +41,12 @@ class ProfileInformations extends Component {
 	}
 	render() {
 		return (
-			<View style={styles.container}>
+			<View>
 				{this.renderTextInput()}
 				<FullWidthButton buttonText="BİLGİLERİ GÜNCELLE" onClick={() => {}} />
 			</View>
 		);
 	}
 }
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: Colors.AppBackgroundColor,
-		paddingVertical: widthPercentageToDP('4%')
-	}
-});
+
 export default ProfileInformations;

@@ -66,7 +66,7 @@ const DrawerPage = createDrawerNavigator(
 		}
 	},
 	{
-		initialRouteName: 'profile',
+		initialRouteName: 'qrCode',
 		contentComponent: SideMenu,
 		contentOptions: {}
 	}

@@ -46,17 +46,11 @@ class Messages extends Component {
 	}
 	render() {
 		return (
-			<View style={styles.container}>
+			<View style={{ paddingTop: widthPercentageToDP('2%') }}>
 				<ScrollView>{this.renderMessages()}</ScrollView>
 			</View>
 		);
 	}
 }
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: Colors.AppBackgroundColor,
-		paddingVertical: widthPercentageToDP('2%')
-	}
-});
+
 export default Messages;

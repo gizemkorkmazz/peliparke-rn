@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 import { withTheme, Paper, Toolbar, ToolbarBackAction, ToolbarAction, ToolbarContent } from 'react-native-paper';
-import { FontSizeDict, widthPercentageToDP, heightPercentageToDP } from '../../helpers';
+import { FontSizeDict, widthPercentageToDP, heightPercentageToDP, Colors } from '../../helpers';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
 	},
 	pageStyle: {
 		flex: 1,
-		padding: '3%'
+		padding: '3%',
+		backgroundColor: Colors.AppBackgroundColor
 	},
 
 	toolBarTitleStyle: {

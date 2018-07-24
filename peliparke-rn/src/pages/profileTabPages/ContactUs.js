@@ -12,7 +12,7 @@ class ContactUs extends Component {
 	};
 	render() {
 		return (
-			<View style={styles.container}>
+			<View style={{ paddingTop: widthPercentageToDP('2%') }}>
 				<TouchableOpacity
 					onPress={() => {
 						this.setState({ isSelectTopicTitleVisible: true });
@@ -81,11 +81,6 @@ class ContactUs extends Component {
 	}
 }
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: Colors.AppBackgroundColor,
-		paddingVertical: widthPercentageToDP('2%')
-	},
 	selectTopicContainer: {
 		justifyContent: 'space-between',
 		alignItems: 'center',
