@@ -5,12 +5,12 @@ import { Button } from '../../../node_modules/react-native-paper';
 import { PropTypes } from 'prop-types';
 class FullWidthButton extends Component {
 	render() {
-		const { onClick, buttonText } = this.props;
+		const { onClick, buttonText, backgroundColor } = this.props;
 		return (
 			<View style={styles.buttonContainer}>
 				<Button
 					raised
-					style={styles.resetCodeButton}
+					style={[styles.resetCodeButton, { backgroundColor: backgroundColor || Colors.LoginButtonColor }]}
 					dark={true}
 					onPress={() => {
 						onClick();
@@ -31,8 +31,7 @@ const styles = StyleSheet.create({
 		margin: widthPercentageToDP('3%')
 	},
 	resetCodeButton: {
-		paddingVertical: widthPercentageToDP('2%'),
-		backgroundColor: Colors.LoginButtonColor
+		paddingVertical: widthPercentageToDP('2%')
 	}
 });
 export default FullWidthButton;
