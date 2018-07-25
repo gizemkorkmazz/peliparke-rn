@@ -14,7 +14,7 @@ class QRCodePage extends Component {
 	render() {
 		return (
 			<Page title="Ürün Kodu Okut">
-				<QRCodeUnsuccessful />
+				<QRCodeSuccessful />
 			</Page>
 		);
 	}

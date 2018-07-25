@@ -6,7 +6,7 @@ import ProductCodeInfoComponent from '../common/ProductCodeInfoComponent';
 class QRCodeSuccessful extends Component {
 	render() {
 		return (
-			<View style={{ flex: 1.5 }}>
+			<View style={{ flex: 1 }}>
 				<View style={styles.qrSuccessfulContainer}>
 					<Image source={require('../../../assets/success.png')} style={styles.qrPassSuccessfulImage} />
 					<Text style={styles.qrSuccessfulContainerText}>ÜRÜN KODU BAŞARIYLA</Text>
