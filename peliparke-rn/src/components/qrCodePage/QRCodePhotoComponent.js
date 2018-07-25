@@ -9,10 +9,19 @@ class QRCodePhotoComponent extends Component {
 		hasCameraPermission: null,
 		type: Camera.Constants.Type.back
 	};
+	async componentWillMount() {
+		const { status } = await Permissions.askAsync(Permissions.CAMERA);
+		this.setState({ hasCameraPermission: status === 'granted' });
+	}
 	render() {
+		const { onClick } = this.props;
 		return (
-			<View style={{ flex: 1 }}>
-				<TouchableOpacity onPress={() => {}}>
+			<View style={styles.container}>
+				<TouchableOpacity
+					onPress={() => {
+						onClick();
+					}}
+				>
 					<ProductCodeInfoComponent
 						containerText="ÜRÜN KODU NASIL OKUTURUM ?"
 						containerImage={require('../../../assets/question.png')}
@@ -24,6 +33,10 @@ class QRCodePhotoComponent extends Component {
 	}
 }
 const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		padding: widthPercentageToDP('2%')
+	},
 	cameraStyle: {
 		flex: 0.9,
 		marginTop: widthPercentageToDP('2%')

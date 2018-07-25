@@ -8,8 +8,9 @@ import { FontSizeDict } from './../../helpers/Constans';
 import ProductCodeInfoComponent from './../common/ProductCodeInfoComponent';
 class HowQRCodePassComponent extends Component {
 	render() {
+		const { onClick } = this.props;
 		return (
-			<View>
+			<View style={styles.container}>
 				<ProductCodeInfoComponent
 					containerText="ÜRÜN KODU NASIL OKUTURUM ?"
 					containerImage={require('../../../assets/question.png')}
@@ -24,7 +25,11 @@ class HowQRCodePassComponent extends Component {
 						<Image source={require('../../../assets/qrDummy.png')} style={styles.bunner} />
 					</Swiper>
 				</View>
-				<TouchableOpacity>
+				<TouchableOpacity
+					onPress={() => {
+						onClick();
+					}}
+				>
 					<ProductCodeInfoComponent
 						style={{ backgroundColor: Colors.HomePageQRContainerBackgroundColor }}
 						containerText="ÜRÜN KODU OKUT"
@@ -36,6 +41,9 @@ class HowQRCodePassComponent extends Component {
 	}
 }
 const styles = StyleSheet.create({
+	container: {
+		padding: widthPercentageToDP('2%')
+	},
 	bunner: {
 		flex: 1,
 		resizeMode: 'contain',
