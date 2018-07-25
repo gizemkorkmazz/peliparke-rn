@@ -5,11 +5,19 @@ import Page from '../components/common/Page';
 import { Colors, widthPercentageToDP, heightPercentageToDP } from '../helpers';
 import { FontSizeDict } from './../helpers/Constans';
 import Swiper from 'react-native-swiper';
+import { Camera, Permissions } from 'expo';
+import QRCodePhotoComponent from '../components/qrCodePage/QRCodePhotoComponent';
+
 class QRCodePage extends Component {
+	state = {
+		hasCameraPermission: null,
+		type: Camera.Constants.Type.back
+	};
 	render() {
 		return (
 			<Page title="Ürün Kodu Okut">
-				<View style={styles.qrPassContainer}>
+				<QRCodePhotoComponent />
+				{/* <View style={styles.qrPassContainer}>
 					<Text style={styles.qrPassContainerText}>ÜRÜN KODU NASIL OKUTURUM ?</Text>
 					<Image source={require('../../assets/question.png')} style={styles.qrPassContainerImage} />
 				</View>
@@ -30,7 +38,7 @@ class QRCodePage extends Component {
 						<Text style={styles.qrPassContainerText}>ÜRÜN KODU OKUT</Text>
 						<Image source={require('../../assets/yeniBarkot.png')} style={styles.qrPassContainerImage} />
 					</View>
-				</TouchableOpacity>
+				</TouchableOpacity> */}
 			</Page>
 		);
 	}
