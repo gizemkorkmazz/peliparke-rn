@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Colors, widthPercentageToDP, heightPercentageToDP } from '../../helpers';
 import { FontSizeDict } from './../../helpers/Constans';
 import ProductCodeInfoComponent from '../common/ProductCodeInfoComponent';
+import { PropTypes } from 'prop-types';
 class QRCodeSuccessful extends Component {
 	render() {
 		const { newQrCodeClick, goToHomePageClick } = this.props;
@@ -52,7 +53,10 @@ class QRCodeSuccessful extends Component {
 		);
 	}
 }
-
+QRCodeSuccessful.propTypes = {
+	newQrCodeClick: PropTypes.func,
+	goToHomePageClick: PropTypes.func
+};
 const styles = StyleSheet.create({
 	qrSuccessfulContainer: {
 		backgroundColor: Colors.LoginButtonColor,

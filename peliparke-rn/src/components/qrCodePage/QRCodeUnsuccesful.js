@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Colors, widthPercentageToDP, heightPercentageToDP } from '../../helpers';
 import { FontSizeDict } from './../../helpers/Constans';
 import ProductCodeInfoComponent from '../common/ProductCodeInfoComponent';
+import { PropTypes } from 'prop-types';
 class QRCodeUnsuccessful extends Component {
 	render() {
 		const { tryAgainClick, howClick } = this.props;
@@ -46,6 +47,10 @@ class QRCodeUnsuccessful extends Component {
 		);
 	}
 }
+QRCodeUnsuccessful.propTypes = {
+	tryAgainClick: PropTypes.func,
+	howClick: PropTypes.func
+};
 const styles = StyleSheet.create({
 	qrPassUnsuccessful: {
 		backgroundColor: Colors.HomePageQRContainerBackgroundColor,

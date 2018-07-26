@@ -5,9 +5,9 @@ import { Button } from '../../../node_modules/react-native-paper';
 import { PropTypes } from 'prop-types';
 class FullWidthButton extends Component {
 	render() {
-		const { onClick, buttonText, backgroundColor } = this.props;
+		const { onClick, buttonText, backgroundColor, buttonStyle } = this.props;
 		return (
-			<View style={styles.buttonContainer}>
+			<View style={[styles.buttonContainer, buttonStyle]}>
 				<Button
 					raised
 					style={[styles.resetCodeButton, { backgroundColor: backgroundColor || Colors.LoginButtonColor }]}
@@ -24,7 +24,8 @@ class FullWidthButton extends Component {
 }
 FullWidthButton.propTypes = {
 	onClick: PropTypes.func,
-	buttonText: PropTypes.string
+	buttonText: PropTypes.string,
+	buttonStyle: PropTypes.object
 };
 const styles = StyleSheet.create({
 	buttonContainer: {

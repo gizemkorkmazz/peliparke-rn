@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { connect } from 'react-redux';
-import Page from '../common/Page';
 import { Colors, widthPercentageToDP, heightPercentageToDP } from '../../helpers';
 import Swiper from 'react-native-swiper';
-import { FontSizeDict } from './../../helpers/Constans';
 import ProductCodeInfoComponent from './../common/ProductCodeInfoComponent';
+import { PropTypes } from 'prop-types';
 class HowQRCodePassComponent extends Component {
 	render() {
 		const { onClick } = this.props;
@@ -40,6 +38,9 @@ class HowQRCodePassComponent extends Component {
 		);
 	}
 }
+HowQRCodePassComponent.propTypes = {
+	onClick: PropTypes.func
+};
 const styles = StyleSheet.create({
 	container: {
 		padding: widthPercentageToDP('2%')

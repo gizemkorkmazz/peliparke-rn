@@ -6,8 +6,9 @@ import QRCodePhotoComponent from '../components/qrCodePage/QRCodePhotoComponent'
 import HowQRCodePassComponent from '../components/qrCodePage/HowQRCodePassComponent';
 import QRCodeSuccessful from '../components/qrCodePage/QRCodeSuccessful';
 import QRCodeUnsuccessful from './../components/qrCodePage/QRCodeUnsuccesful';
-import { widthPercentageToDP, Colors } from '../helpers';
+import { widthPercentageToDP, Colors, heightPercentageToDP } from '../helpers';
 import { Button } from '../../node_modules/react-native-paper';
+import FullWidthButton from '../components/common/FullWidthButton';
 const { width } = Dimensions.get('window');
 class QRCodePage extends Component {
 	render() {
@@ -26,27 +27,22 @@ class QRCodePage extends Component {
 								this.refs.myScrollView.scrollTo({ x: width, y: 0, animated: true });
 							}}
 						/>
-						<View style={{ marginBottom: widthPercentageToDP('3%') }}>
-							<Button
-								raised
-								dark={true}
-								color={Colors.LoginButtonColor}
-								onPress={() => {
-									this.refs.myScrollView.scrollTo({ x: width * 2, y: 0, animated: true });
-								}}
-							>
-								Başarılı
-							</Button>
-							<Button
-								raised
-								color={Colors.HomePageQRContainerBackgroundColor}
-								onPress={() => {
-									this.refs.myScrollView.scrollTo({ x: width * 3, y: 0, animated: true });
-								}}
-							>
-								Başarısız
-							</Button>
-						</View>
+						<FullWidthButton
+							buttonText="Başarılı"
+							backgroundColor={Colors.LoginButtonColor}
+							buttonStyle={{ margin: 0 }}
+							onClick={() => {
+								this.refs.myScrollView.scrollTo({ x: width * 2, y: 0, animated: true });
+							}}
+						/>
+						<FullWidthButton
+							buttonText="Başarısız"
+							backgroundColor={Colors.HomePageQRContainerBackgroundColor}
+							buttonStyle={{ margin: 0 }}
+							onClick={() => {
+								this.refs.myScrollView.scrollTo({ x: width * 3, y: 0, animated: true });
+							}}
+						/>
 					</View>
 					<View style={{ width: width }}>
 						<HowQRCodePassComponent

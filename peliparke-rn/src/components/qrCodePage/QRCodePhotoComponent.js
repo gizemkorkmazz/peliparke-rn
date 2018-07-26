@@ -4,7 +4,8 @@ import { Colors, widthPercentageToDP, heightPercentageToDP } from '../../helpers
 import { Camera, Permissions } from 'expo';
 import { FontSizeDict } from './../../helpers/Constans';
 import ProductCodeInfoComponent from '../common/ProductCodeInfoComponent';
-import BackgroundTimer from 'react-native-background-timer';
+import { PropTypes } from 'prop-types';
+
 class QRCodePhotoComponent extends Component {
 	state = {
 		hasCameraPermission: null,
@@ -34,6 +35,9 @@ class QRCodePhotoComponent extends Component {
 		);
 	}
 }
+QRCodePhotoComponent.propTypes = {
+	onClick: PropTypes.func
+};
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
