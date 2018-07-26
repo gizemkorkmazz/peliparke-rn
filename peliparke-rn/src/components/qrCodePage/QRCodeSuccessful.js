@@ -5,8 +5,9 @@ import { FontSizeDict } from './../../helpers/Constans';
 import ProductCodeInfoComponent from '../common/ProductCodeInfoComponent';
 class QRCodeSuccessful extends Component {
 	render() {
+		const { newQrCodeClick, goToHomePageClick } = this.props;
 		return (
-			<View style={{ flex: 1 }}>
+			<View style={{ flex: 1, padding: widthPercentageToDP('2%') }}>
 				<View style={styles.qrSuccessfulContainer}>
 					<Image source={require('../../../assets/success.png')} style={styles.qrPassSuccessfulImage} />
 					<Text style={styles.qrSuccessfulContainerText}>ÜRÜN KODU BAŞARIYLA</Text>
@@ -17,7 +18,11 @@ class QRCodeSuccessful extends Component {
 					<Text style={styles.qrSuccessfulContainerText}>150</Text>
 				</View>
 
-				<TouchableOpacity onPress={() => {}}>
+				<TouchableOpacity
+					onPress={() => {
+						newQrCodeClick();
+					}}
+				>
 					<ProductCodeInfoComponent
 						containerText="YENİ ÜRÜN KODUNU OKUT"
 						containerImage={require('../../../assets/yeniBarkot.png')}
@@ -27,7 +32,11 @@ class QRCodeSuccessful extends Component {
 						}}
 					/>
 				</TouchableOpacity>
-				<TouchableOpacity onPress={() => {}}>
+				<TouchableOpacity
+					onPress={() => {
+						goToHomePageClick();
+					}}
+				>
 					<View
 						style={[
 							styles.qrPassContainer,
@@ -43,6 +52,7 @@ class QRCodeSuccessful extends Component {
 		);
 	}
 }
+
 const styles = StyleSheet.create({
 	qrSuccessfulContainer: {
 		backgroundColor: Colors.LoginButtonColor,

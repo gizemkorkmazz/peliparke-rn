@@ -6,7 +6,8 @@ import QRCodePhotoComponent from '../components/qrCodePage/QRCodePhotoComponent'
 import HowQRCodePassComponent from '../components/qrCodePage/HowQRCodePassComponent';
 import QRCodeSuccessful from '../components/qrCodePage/QRCodeSuccessful';
 import QRCodeUnsuccessful from './../components/qrCodePage/QRCodeUnsuccesful';
-import { widthPercentageToDP } from '../helpers';
+import { widthPercentageToDP, Colors } from '../helpers';
+import { Button } from '../../node_modules/react-native-paper';
 const { width } = Dimensions.get('window');
 class QRCodePage extends Component {
 	render() {
@@ -25,11 +26,58 @@ class QRCodePage extends Component {
 								this.refs.myScrollView.scrollTo({ x: width, y: 0, animated: true });
 							}}
 						/>
+						<View style={{ marginBottom: widthPercentageToDP('3%') }}>
+							<Button
+								raised
+								dark={true}
+								color={Colors.LoginButtonColor}
+								onPress={() => {
+									this.refs.myScrollView.scrollTo({ x: width * 2, y: 0, animated: true });
+								}}
+							>
+								Başarılı
+							</Button>
+							<Button
+								raised
+								color={Colors.HomePageQRContainerBackgroundColor}
+								onPress={() => {
+									this.refs.myScrollView.scrollTo({ x: width * 3, y: 0, animated: true });
+								}}
+							>
+								Başarısız
+							</Button>
+						</View>
 					</View>
 					<View style={{ width: width }}>
 						<HowQRCodePassComponent
 							onClick={() => {
 								this.refs.myScrollView.scrollTo({ x: 0, y: 0, animated: true });
+							}}
+						/>
+					</View>
+					<View style={{ width: width }}>
+						<QRCodeSuccessful
+							onClick={() => {
+								this.refs.myScrollView.scrollTo({ x: width * 2, y: 0, animated: true });
+							}}
+							newQrCodeClick={() => {
+								this.refs.myScrollView.scrollTo({ x: width, y: 0, animated: true });
+							}}
+							goToHomePageClick={() => {
+								this.props.navigation.navigate('home');
+							}}
+						/>
+					</View>
+					<View style={{ width: width }}>
+						<QRCodeUnsuccessful
+							onClick={() => {
+								this.refs.myScrollView.scrollTo({ x: width * 3, y: 0, animated: true });
+							}}
+							tryAgainClick={() => {
+								this.refs.myScrollView.scrollTo({ x: 0, y: 0, animated: true });
+							}}
+							howClick={() => {
+								this.refs.myScrollView.scrollTo({ x: width, y: 0, animated: true });
 							}}
 						/>
 					</View>

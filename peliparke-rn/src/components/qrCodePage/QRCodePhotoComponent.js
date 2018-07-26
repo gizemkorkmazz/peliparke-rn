@@ -4,6 +4,7 @@ import { Colors, widthPercentageToDP, heightPercentageToDP } from '../../helpers
 import { Camera, Permissions } from 'expo';
 import { FontSizeDict } from './../../helpers/Constans';
 import ProductCodeInfoComponent from '../common/ProductCodeInfoComponent';
+import BackgroundTimer from 'react-native-background-timer';
 class QRCodePhotoComponent extends Component {
 	state = {
 		hasCameraPermission: null,
@@ -13,6 +14,7 @@ class QRCodePhotoComponent extends Component {
 		const { status } = await Permissions.askAsync(Permissions.CAMERA);
 		this.setState({ hasCameraPermission: status === 'granted' });
 	}
+
 	render() {
 		const { onClick } = this.props;
 		return (
@@ -27,7 +29,7 @@ class QRCodePhotoComponent extends Component {
 						containerImage={require('../../../assets/question.png')}
 					/>
 				</TouchableOpacity>
-				<Camera ref={ref => (this.camera = ref)} style={styles.cameraStyle} type={this.state.type} />
+				<View style={styles.cameraStyle} />
 			</View>
 		);
 	}
@@ -39,7 +41,8 @@ const styles = StyleSheet.create({
 	},
 	cameraStyle: {
 		flex: 0.9,
-		marginTop: widthPercentageToDP('2%')
+		marginTop: widthPercentageToDP('2%'),
+		backgroundColor: 'black'
 	}
 });
 export default QRCodePhotoComponent;

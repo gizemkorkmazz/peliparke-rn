@@ -5,15 +5,20 @@ import { FontSizeDict } from './../../helpers/Constans';
 import ProductCodeInfoComponent from '../common/ProductCodeInfoComponent';
 class QRCodeUnsuccessful extends Component {
 	render() {
+		const { tryAgainClick, howClick } = this.props;
 		return (
-			<View style={{ flex: 1 }}>
+			<View style={{ flex: 1, padding: widthPercentageToDP('2%') }}>
 				<View style={styles.qrPassUnsuccessful}>
 					<Image source={require('../../../assets/sorry.png')} style={styles.qrPassUnsuccessfulImage} />
 					<Text style={[styles.qrPassContainerText]}>Son 60 saniyede hiçbir ürün kodu </Text>
 					<Text style={[styles.qrPassContainerText]}>okuyamadık</Text>
 				</View>
 
-				<TouchableOpacity onPress={() => {}}>
+				<TouchableOpacity
+					onPress={() => {
+						tryAgainClick();
+					}}
+				>
 					<ProductCodeInfoComponent
 						containerText="TEKRAR DENE"
 						containerImage={require('../../../assets/retry.png')}
@@ -23,7 +28,11 @@ class QRCodeUnsuccessful extends Component {
 						}}
 					/>
 				</TouchableOpacity>
-				<TouchableOpacity onPress={() => {}}>
+				<TouchableOpacity
+					onPress={() => {
+						howClick();
+					}}
+				>
 					<ProductCodeInfoComponent
 						containerText="ÜRÜN KODU NASIL OKUTURUM ?"
 						containerImage={require('../../../assets/question.png')}
